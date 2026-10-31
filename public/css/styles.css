@@ -6,6 +6,10 @@ html {
 @view-transition {
   navigation: auto;
 }
+#folio-preview .f-links a[href="prestamos.html"] {
+  font-size: 12px;
+  padding: 4px 0;
+}
 #folio-preview .f-catalog-access {
   display: flex;
   justify-content: space-between;

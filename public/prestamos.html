@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mis préstamos en FOLIO: una mesa para tus lecturas, solicitudes e historias devueltas."
+    />
+    <meta name="theme-color" content="#284733" />
+    <title>Mis préstamos | FOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/prestamos.css" />
+    <script src="js/libros-data.js" defer></script>
+    <script src="js/prestamos-data.js" defer></script>
+    <script src="js/admin-model.js" defer></script>
+    <script src="js/folio-client.js" defer></script>
+    <script src="js/prestamos.js" defer></script>
+  </head>
+  <body>
+    <div id="folio-loans-page" lang="es">
+      <header class="loans-header">
+        <a
+          class="loans-brand"
+          href="index.html"
+          aria-label="FOLIO, volver al inicio"
+          >FOLI<span>O</span></a
+        >
+        <nav aria-label="Navegación principal">
+          <a href="libros.html">Catálogo</a
+          ><a href="prestamos.html" aria-current="page">Mis préstamos</a
+          ><a href="login.html">Ingresar ↗</a>
+        </nav>
+      </header>
+      <main>
+        <section id="loans-table-view" aria-labelledby="loans-title">
+          <div class="loans-intro">
+            <div>
+              <h1 id="loans-title">Tu mesa de<br /><em>lecturas.</em></h1>
+              <p>
+                <span id="loans-greeting"></span> Tus historias tienen un lugar
+                aquí.
+              </p>
+            </div>
+            <p class="loans-intro-note">
+              Algunas empiezan.<br />Otras todavía te acompañan.
+            </p>
+          </div>
+          <div class="loans-filter-bar">
+            <div
+              class="loans-filters"
+              aria-label="Filtrar préstamos por estado"
+            >
+              <button type="button" data-status="" aria-pressed="true">
+                Toda mi mesa <span data-count="all"></span></button
+              ><button
+                type="button"
+                data-status="pendiente"
+                aria-pressed="false"
+              >
+                Pendientes <span data-count="pendiente"></span></button
+              ><button
+                type="button"
+                data-status="prestado"
+                aria-pressed="false"
+              >
+                En lectura <span data-count="prestado"></span></button
+              ><button
+                type="button"
+                data-status="devuelto"
+                aria-pressed="false"
+              >
+                Devueltos <span data-count="devuelto"></span>
+              </button>
+            </div>
+            <p id="loans-results" aria-live="polite"></p>
+          </div>
+          <div class="loans-table">
+            <div class="loans-books" id="loans-books"></div>
+            <div class="loans-empty" id="loans-empty" hidden>
+              <h2>Aquí empieza tu próxima lectura.</h2>
+              <p>No hay préstamos en esta selección.</p>
+              <a href="libros.html">Explorar el catálogo ↗</a>
+            </div>
+          </div>
+          <p class="loans-table-caption">
+            Abre un libro para consultar su ficha y el detalle de tu préstamo.
+          </p>
+        </section>
+        <article
+          id="loans-detail-view"
+          hidden
+          aria-labelledby="loan-detail-title"
+        >
+          <div class="loan-detail-top">
+            <button type="button" data-action="back">← Volver a mi mesa</button
+            ><span id="loan-detail-reference"></span>
+          </div>
+          <div
+            class="loan-detail-photo"
+            aria-label="Un libro sobre la mesa de lectura"
+          >
+            <div class="loan-hero-book" id="loan-hero-book"></div>
+            <div class="loan-hero-message">
+              <p id="loan-hero-status"></p>
+              <p>Cada lectura<br />deja una <em>huella.</em></p>
+            </div>
+          </div>
+          <div class="loan-editorial">
+            <div class="loan-editorial-columns">
+              <section class="loan-title-column">
+                <p id="loan-book-category" class="loan-small"></p>
+                <h1 id="loan-detail-title"></h1>
+                <p id="loan-book-author" class="loan-book-author"></p>
+                <p class="loan-editorial-intro">
+                  Una historia en tus manos. Un capítulo en tu mesa de lecturas.
+                </p>
+                <dl class="loan-book-facts">
+                  <div>
+                    <dt>Libro</dt>
+                    <dd id="loan-book-id"></dd>
+                  </div>
+                  <div>
+                    <dt>Categoría</dt>
+                    <dd id="loan-book-genre"></dd>
+                  </div>
+                  <div>
+                    <dt>Disponibles en catálogo</dt>
+                    <dd id="loan-book-stock"></dd>
+                  </div>
+                </dl>
+                <a
+                  id="loan-catalog-link"
+                  class="loan-text-link"
+                  href="libros.html"
+                  >Ver ficha del catálogo ↗</a
+                >
+              </section>
+              <section class="loan-story-column">
+                <h2>Entre sus páginas.</h2>
+                <p id="loan-book-description" class="loan-book-description"></p>
+                <p class="loan-story-note">
+                  Cada libro tiene su propio ritmo. Vuelve a esta ficha para
+                  consultar cómo va tu préstamo.
+                </p>
+              </section>
+              <section class="loan-record-column">
+                <h2>Tu préstamo.</h2>
+                <dl class="loan-record">
+                  <div>
+                    <dt>Código de préstamo</dt>
+                    <dd id="loan-record-code" class="loan-code"></dd>
+                  </div>
+                  <div>
+                    <dt>Estado</dt>
+                    <dd id="loan-record-status"></dd>
+                  </div>
+                  <div>
+                    <dt>Fecha de préstamo</dt>
+                    <dd id="loan-record-date"></dd>
+                  </div>
+                  <div>
+                    <dt>Fecha de devolución</dt>
+                    <dd id="loan-record-return"></dd>
+                  </div>
+                  <div>
+                    <dt>Usuario</dt>
+                    <dd id="loan-record-user"></dd>
+                  </div>
+                  <div>
+                    <dt>Correo</dt>
+                    <dd id="loan-record-email"></dd>
+                  </div>
+                </dl>
+                <p id="loan-record-note" class="loan-record-note"></p>
+              </section>
+            </div>
+            <section class="loan-journey" aria-labelledby="loan-journey-title">
+              <h2 id="loan-journey-title">El recorrido de esta lectura.</h2>
+              <ol id="loan-journey-steps"></ol>
+              <p>
+                La biblioteca aprueba las solicitudes y registra las
+                devoluciones.
+              </p>
+            </section>
+            <button class="loan-back-bottom" type="button" data-action="back">
+              Regresar a mis libros ↗
+            </button>
+          </div>
+        </article>
+      </main>
+      <footer class="loans-footer">
+        <a href="index.html">FOLIO — Biblioteca académica</a
+        ><label
+          >Iluminación
+          <select id="loans-light">
+            <option value="auto">Automática · Lima</option>
+            <option value="morning">Mañana</option>
+            <option value="afternoon">Tarde</option>
+            <option value="night">Noche</option>
+          </select></label
+        ><span>Mis préstamos · Datos de demostración</span>
+      </footer>
+    </div>
+  </body>
+</html>

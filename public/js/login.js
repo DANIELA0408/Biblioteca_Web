@@ -7,6 +7,7 @@
     status = get("#folio-access-status"),
     toggle = get("#folio-show-password");
   let registration = false;
+  const initialRegistration = location.pathname.endsWith("registro.html");
   const scene = get(".login-photo>img");
   const originalScene = scene.src;
   const sceneImages = {
@@ -131,13 +132,39 @@
     toggle.setAttribute("aria-label", "Mostrar contraseña");
     status.textContent = "";
   });
-  form.addEventListener("submit", (e) => {
+  if (initialRegistration) get("#folio-switch-view").click();
+  password.maxLength = 72;
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
-    status.textContent = registration
-      ? "Formulario válido. La creación de cuentas estará disponible al conectar el servidor."
-      : "Formulario válido. El inicio de sesión estará disponible al conectar el servidor.";
-    password.value = "";
+    const submit = form.querySelector('[type="submit"]');
+    submit.disabled = true;
+    get("#folio-switch-view").disabled = true;
+    status.textContent = registration ? "Creando tu cuenta…" : "Ingresando…";
+    try {
+      const email = get("#folio-access-email").value;
+      const user = registration
+        ? await FolioClient.register({
+            nombre: name.value,
+            email,
+            password: password.value,
+          })
+        : await FolioClient.login(email, password.value);
+      const params = new URLSearchParams(location.search);
+      const fallback =
+        user.rol === "admin" ? "admin/libros.html" : "prestamos.html";
+      let target = FolioClient.safeReturn(params.get("volver"), fallback);
+      if (params.get("libro"))
+        target = "libros.html?libro=" + encodeURIComponent(params.get("libro"));
+      if (user.rol !== "admin" && target.startsWith("admin/"))
+        target = "prestamos.html";
+      FolioClient.go(target);
+    } catch (error) {
+      status.textContent = error.message;
+    } finally {
+      submit.disabled = false;
+      get("#folio-switch-view").disabled = false;
+    }
   });
   form.addEventListener("input", () => {
     status.textContent = "";

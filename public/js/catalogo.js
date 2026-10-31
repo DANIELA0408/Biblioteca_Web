@@ -2,7 +2,7 @@
   const root = document.getElementById("folio-catalog-page");
   if (!root) return;
   const get = (selector) => root.querySelector(selector);
-  const categories = ["Literatura", "Poesía", "Ensayo"];
+  const categories = [...new Set(FolioClient.books().map((b) => b.categoria))];
   const palette = [
     ["#243f32", "#eee7cf"],
     ["#d9c5b4", "#4a2925"],
@@ -13,7 +13,7 @@
     ["#cbac83", "#412e25"],
     ["#6b302d", "#f1e4cc"],
   ];
-  const books = (globalThis.FolioLibros || []).map((book, index) => ({
+  const books = FolioClient.books().map((book, index) => ({
     ...book,
     color: book.color || palette[index % palette.length][0],
     tinta: book.tinta || palette[index % palette.length][1],
@@ -71,6 +71,14 @@
     return `<article class="catalog-book"><button type="button" data-book="${book.id}" aria-label="Ver ficha de ${escape(book.titulo)}">${cover(book)}<span class="book-availability ${book.cantidad ? "" : "is-unavailable"}">${book.cantidad ? `Disponible · ${book.cantidad} ${book.cantidad === 1 ? "ejemplar" : "ejemplares"}` : "Sin ejemplares disponibles"}</span><h3>${escape(book.titulo)}</h3><p class="book-author">${escape(book.autor)}</p><span class="book-open">Ver libro ↗</span></button></article>`;
   }
 
+  get(".catalog-categories").innerHTML = [
+    '<button type="button" data-category="" aria-pressed="true">Todo el estante</button>',
+    ...categories.map(
+      (c) =>
+        `<button type="button" data-category="${escape(c)}" aria-pressed="false">${escape(c)}</button>`,
+    ),
+  ].join("");
+
   function renderList() {
     const matching = matchingBooks();
     const totalPages = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
@@ -125,7 +133,12 @@
 
   function openBook(id, animate = true) {
     const book = books.find((entry) => entry.id === id);
-    if (!book) return;
+    if (!book) {
+      FolioClient.message(
+        "Este libro ya no está en el catálogo. Busca otra lectura en el estante.",
+      );
+      return;
+    }
     const update = () => {
       get("#detail-cover").innerHTML = cover(book);
       get("#detail-title").textContent = book.titulo;
@@ -138,9 +151,22 @@
         : "Sin ejemplares disponibles";
       get("#detail-reference").textContent =
         `Ficha FOL-${String(book.id).padStart(4, "0")}`;
-      get("#detail-request").innerHTML = book.cantidad
-        ? `<a class="detail-primary" href="login.html?libro=${book.id}"><span>Ingresar para solicitar</span><span aria-hidden="true">↗</span></a>`
-        : '<button type="button" class="detail-primary" disabled>No disponible por el momento</button>';
+      const user = FolioClient.session();
+      const existing =
+        user?.rol === "usuario"
+          ? FolioClient.myLoans().find(
+              (l) => l.libro_id === book.id && l.estado !== "devuelto",
+            )
+          : null;
+      get("#detail-request").innerHTML = existing
+        ? `<a class="detail-primary" href="prestamos.html?prestamo=${existing.id}">Ver mi solicitud ↗</a>`
+        : user?.rol === "admin"
+          ? '<a class="detail-primary" href="admin/libros.html">Administrar colección ↗</a>'
+          : !book.cantidad
+            ? '<button type="button" class="detail-primary" disabled>No disponible por el momento</button>'
+            : user
+              ? `<button type="button" class="detail-primary" data-request="${book.id}">Solicitar préstamo ↗</button>`
+              : `<a class="detail-primary" href="login.html?libro=${book.id}">Ingresar para solicitar ↗</a>`;
       get("#catalog-list-view").hidden = true;
       get("#catalog-detail-view").hidden = false;
       document.title = `${book.titulo} | FOLIO`;
@@ -204,6 +230,18 @@
     goToPage(state.page + 1),
   );
   root.addEventListener("click", (event) => {
+    const request = event.target.closest("[data-request]");
+    if (request && !request.disabled) {
+      request.disabled = true;
+      try {
+        const loan = FolioClient.requestLoan(Number(request.dataset.request));
+        FolioClient.go("prestamos.html?prestamo=" + loan.id);
+      } catch (error) {
+        FolioClient.message(error.message);
+        request.disabled = false;
+      }
+      return;
+    }
     const button = event.target.closest("button");
     if (!button || button.disabled) return;
     if (button.dataset.book) openBook(Number(button.dataset.book));
@@ -217,5 +255,5 @@
   });
   renderList();
   const initialBook = Number(params.get("libro"));
-  if (initialBook) openBook(initialBook, false);
+  if (params.has("libro")) openBook(initialBook, false);
 })();

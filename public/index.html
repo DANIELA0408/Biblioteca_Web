@@ -12,6 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/libros-data.js" defer></script>
+    <script src="js/prestamos-data.js" defer></script>
+    <script src="js/admin-model.js" defer></script>
+    <script src="js/folio-client.js" defer></script>
     <script src="js/index.js" defer></script>
   </head>
   <body>
@@ -41,13 +45,9 @@
             <div class="f-links">
               <a href="#folio-catalog">Catálogo</a
               ><a href="#folio-how">Cómo funciona</a
-              ><button
-                class="cursor-interaction"
-                type="button"
-                data-action="loans"
-              >
+              ><a class="cursor-interaction" href="prestamos.html">
                 Mis préstamos <span id="folio-count"></span>
-              </button>
+              </a>
             </div>
             <a
               class="f-login cursor-interaction"
@@ -58,25 +58,6 @@
             </a>
           </nav>
         </header>
-        <section
-          class="f-panel"
-          id="folio-panel"
-          hidden
-          aria-label="Panel de interacción"
-        >
-          <div class="f-panel-head">
-            <h2 id="folio-panel-title"></h2>
-            <button
-              type="button"
-              class="f-close cursor-interaction"
-              data-action="close"
-            >
-              Cerrar ×
-            </button>
-          </div>
-          <div id="folio-panel-body"></div>
-          <p class="f-notice" id="folio-panel-notice" role="status"></p>
-        </section>
         <main id="folio-home">
           <section class="f-hero" aria-labelledby="folio-title">
             <p class="f-hero-label f-kicker">
@@ -231,6 +212,7 @@
         </main>
         <footer>
           <span>FOLIO — Biblioteca académica</span
+          ><a href="admin/libros.html">Administración demo ↗</a
           ><span>Catálogo de muestra · Préstamos de demostración</span>
         </footer>
       </div>
