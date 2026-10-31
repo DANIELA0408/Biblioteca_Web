@@ -3,6 +3,84 @@
 html {
   scroll-behavior: auto;
 }
+@view-transition {
+  navigation: auto;
+}
+#folio-preview .f-catalog-access {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+  border-top: 1px solid var(--f-line);
+}
+#folio-preview .f-catalog-access > p {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: clamp(20px, 2.6cqw, 29px);
+  line-height: 1.15;
+  padding: 20px 0;
+}
+#folio-preview .f-catalog-access > a {
+  position: relative;
+  isolation: isolate;
+  align-self: stretch;
+  min-width: 170px;
+  padding: 17px 22px 28px;
+  color: #fff4df;
+  text-decoration: none;
+}
+#folio-preview .f-catalog-access > a:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #a52e28;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 12px), 0 100%);
+  z-index: -1;
+}
+#folio-preview .f-catalog-access > a span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+#folio-preview .f-catalog-access > a strong {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: folio-home-out 0.16s ease both;
+  }
+  ::view-transition-new(root) {
+    animation: folio-home-in 0.22s ease-out both;
+  }
+  @keyframes folio-home-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes folio-home-in {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+  }
+}
+@media (max-width: 450px) {
+  #folio-preview .f-catalog-access {
+    gap: 14px;
+  }
+  #folio-preview .f-catalog-access > a {
+    min-width: 136px;
+    padding: 16px 14px 27px;
+  }
+  #folio-preview .f-catalog-access > a strong {
+    font-size: 21px;
+  }
+}
 body {
   margin: 0;
   background: #f7f6f0;

@@ -103,6 +103,15 @@
     $("#folio-count").textContent = loans.length
       ? "(" + loans.length + ")"
       : "";
+    const fullCatalog = $("#folio-full-catalog");
+    if (fullCatalog) {
+      const params = new URLSearchParams();
+      if ($("#folio-query").value.trim())
+        params.set("q", $("#folio-query").value.trim());
+      if (category) params.set("categoria", category);
+      fullCatalog.href =
+        "libros.html" + (params.size ? "?" + params.toString() : "");
+    }
   }
   function open(title) {
     panel.hidden = false;
@@ -176,7 +185,9 @@
     const button = e.target.closest("button");
     if (!button) return;
     if (button.dataset.book) {
-      detail(Number(button.dataset.book));
+      window.location.assign(
+        "libros.html?libro=" + Number(button.dataset.book),
+      );
       return;
     }
     switch (button.dataset.action) {

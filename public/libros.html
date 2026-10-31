@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explora el catálogo de FOLIO: literatura, poesía y ensayo. Descubre tu próxima lectura y consulta su disponibilidad."
+    />
+    <meta name="theme-color" content="#284733" />
+    <title>Catálogo | FOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/catalogo.css" />
+    <script src="js/libros-data.js" defer></script>
+    <script src="js/catalogo.js" defer></script>
+  </head>
+  <body>
+    <div id="folio-catalog-page" lang="es">
+      <header class="catalog-header">
+        <a
+          class="catalog-brand"
+          href="index.html"
+          aria-label="FOLIO, volver al inicio"
+          >FOLI<span>O</span></a
+        >
+        <nav aria-label="Navegación principal">
+          <a href="index.html">Inicio</a
+          ><a href="libros.html" aria-current="page">Catálogo</a
+          ><a href="login.html">Ingresar ↗</a>
+        </nav>
+      </header>
+      <main class="catalog-cabinet">
+        <div
+          class="cabinet-window"
+          role="img"
+          aria-label="Una biblioteca iluminada al fondo, vista sobre la cornisa de un estante de madera"
+        ></div>
+        <div class="catalog-paper">
+          <section id="catalog-list-view" aria-labelledby="catalog-title">
+            <div class="catalog-heading">
+              <div>
+                <p class="catalog-small">La colección FOLIO</p>
+                <h1 id="catalog-title">Tu próxima<br /><em>historia.</em></h1>
+              </div>
+              <p class="catalog-introduction">
+                Hay un libro para cada pregunta.<br />Recorre los estantes y
+                encuentra el tuyo.
+              </p>
+            </div>
+            <form id="catalog-search" class="catalog-search" role="search">
+              <label for="catalog-query" class="catalog-sr"
+                >Buscar libros por título</label
+              ><input
+                id="catalog-query"
+                name="q"
+                type="search"
+                placeholder="¿Qué título estás buscando?"
+                autocomplete="off"
+              /><button type="submit">Buscar ↗</button>
+            </form>
+            <div class="catalog-filters">
+              <div
+                class="catalog-categories"
+                aria-label="Secciones del catálogo"
+              >
+                <button type="button" data-category="" aria-pressed="true">
+                  Todo el estante</button
+                ><button
+                  type="button"
+                  data-category="Literatura"
+                  aria-pressed="false"
+                >
+                  Literatura</button
+                ><button
+                  type="button"
+                  data-category="Poesía"
+                  aria-pressed="false"
+                >
+                  Poesía</button
+                ><button
+                  type="button"
+                  data-category="Ensayo"
+                  aria-pressed="false"
+                >
+                  Ensayo
+                </button>
+              </div>
+              <label class="catalog-available"
+                ><input type="checkbox" id="catalog-available" /> Solo
+                disponibles</label
+              >
+            </div>
+            <div class="catalog-results-bar">
+              <p id="catalog-results" aria-live="polite"></p>
+              <label
+                >Ordenar<select id="catalog-sort">
+                  <option value="editorial">Selección editorial</option>
+                  <option value="title">Título A–Z</option>
+                </select></label
+              >
+            </div>
+            <div id="catalog-sections"></div>
+            <div class="catalog-empty" id="catalog-empty" hidden>
+              <h2>Ese libro aún no aparece.</h2>
+              <p>Prueba con otro título o explora una sección diferente.</p>
+              <button type="button" data-action="reset">
+                Limpiar búsqueda ↗
+              </button>
+            </div>
+            <nav class="catalog-pagination" aria-label="Páginas del catálogo">
+              <button id="catalog-prev" type="button">← Anterior</button>
+              <div id="catalog-page-buttons"></div>
+              <button id="catalog-next" type="button">Siguiente →</button>
+            </nav>
+            <p class="catalog-page-note" id="catalog-page-note"></p>
+          </section>
+          <article
+            id="catalog-detail-view"
+            hidden
+            aria-labelledby="detail-title"
+          >
+            <div class="detail-topline">
+              <button type="button" data-action="back">
+                ← Volver al estante</button
+              ><span id="detail-reference"></span>
+            </div>
+            <div class="detail-spread">
+              <figure class="detail-cover-side">
+                <div id="detail-cover"></div>
+                <figcaption>Una portada, una puerta de entrada.</figcaption>
+              </figure>
+              <div class="detail-copy">
+                <p class="catalog-small" id="detail-category"></p>
+                <h1 id="detail-title"></h1>
+                <p id="detail-author" class="detail-author"></p>
+                <p id="detail-description" class="detail-description"></p>
+                <dl class="detail-facts">
+                  <div>
+                    <dt>Categoría</dt>
+                    <dd id="detail-category-value"></dd>
+                  </div>
+                  <div>
+                    <dt>Disponibilidad</dt>
+                    <dd id="detail-quantity"></dd>
+                  </div>
+                </dl>
+                <div id="detail-request"></div>
+                <p class="detail-request-note">
+                  Las solicitudes se revisan antes de aprobar el préstamo.
+                </p>
+              </div>
+            </div>
+            <div class="detail-bottom">
+              <p class="detail-closing">
+                Los buenos libros<br /><em>merecen circular.</em>
+              </p>
+              <div>
+                <h2>¿Otra lectura?</h2>
+                <p>
+                  Vuelve a la colección para descubrir más títulos de
+                  literatura, poesía y ensayo.
+                </p>
+                <button type="button" data-action="back">
+                  Seguir explorando ↗
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+      <footer class="catalog-footer">
+        <a href="index.html">FOLIO — Biblioteca académica</a
+        ><span>Catálogo de demostración · Existencias de ejemplo</span>
+      </footer>
+    </div>
+  </body>
+</html>
