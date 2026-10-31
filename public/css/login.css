@@ -9,7 +9,7 @@ body {
 }
 #folio-login-preview {
   width: 100%;
-  max-width: 1120px;
+  max-width: none;
   margin: 0 auto;
 }
 #folio-login-preview .login-wordmark {
@@ -91,12 +91,19 @@ body {
 }
 #folio-login-preview .login-photo {
   position: relative;
+  aspect-ratio: 3 / 2;
 }
 #folio-login-preview .login-photo > img {
-  width: 100%;
-  height: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--login-room-width, 100vw);
+  max-width: none;
+  height: 100%;
   display: block;
-  aspect-ratio: 3 / 2;
+  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: center;
 }
 #folio-login-preview .login-caption {
   position: absolute;
@@ -449,5 +456,35 @@ body {
   #folio-login-preview .login-caption .login-greeting {
     font-size: 15px;
     margin-bottom: 6px;
+  }
+}
+
+/* A single panorama fills the room without seams or duplicated furniture. */
+#folio-login-preview {
+  container-name: login-panorama;
+  background: #241b13;
+  overflow: hidden;
+}
+#folio-login-preview[data-light="night"] {
+  background: #0c130f;
+}
+#folio-login-preview .login-center {
+  width: 84%;
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  container-type: inline-size;
+  background: var(--login-paper);
+}
+#folio-login-preview .login-header {
+  background: var(--login-paper);
+}
+#folio-login-preview .login-footer {
+  background: var(--login-paper);
+}
+@container login-panorama (max-width:650px) {
+  #folio-login-preview .login-center {
+    width: 100%;
   }
 }

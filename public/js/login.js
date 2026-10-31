@@ -11,8 +11,8 @@
   const originalScene = scene.src;
   const sceneImages = {
     morning: originalScene,
-    afternoon: "assets/images/biblioteca-tarde.webp",
-    night: "assets/images/biblioteca-noche.webp",
+    afternoon: "assets/images/biblioteca-panorama-tarde.webp",
+    night: "assets/images/biblioteca-panorama-noche.webp",
   };
   const greetings = {
     morning: "Buenos días.",
@@ -30,6 +30,21 @@
   greeting.className = "login-greeting";
   caption.prepend(greeting);
   const lightSelect = get("#folio-light-mode");
+  // One continuous photograph spans the room; the form keeps its readable width.
+  function alignRoom() {
+    root.style.setProperty(
+      "--login-room-width",
+      root.getBoundingClientRect().width + "px",
+    );
+  }
+  if (typeof ResizeObserver === "function") {
+    const roomObserver = new ResizeObserver(alignRoom);
+    roomObserver.observe(root);
+  }
+  if (document.fonts && document.fonts.ready)
+    document.fonts.ready.then(alignRoom);
+  alignRoom();
+
   function lightForHour(hour) {
     return hour >= 6 && hour < 12
       ? "morning"
