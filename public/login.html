@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Inicia sesión en FOLIO para continuar tus lecturas. Propuesta de acceso a la biblioteca académica."
+    />
+    <meta name="theme-color" content="#284733" />
+    <title>Iniciar sesión | FOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/login.css" />
+    <script src="js/login.js" defer></script>
+  </head>
+  <body>
+    <div
+      id="folio-login-preview"
+      lang="es"
+      aria-label="FOLIO, propuesta de inicio de sesión"
+      data-view="login"
+    >
+      <header class="login-header">
+        <a
+          class="login-wordmark"
+          href="index.html"
+          aria-label="FOLIO, volver al inicio"
+          >FOLI<span>O</span></a
+        >
+        <p class="login-header-note">
+          Biblioteca académica<br />Tu espacio de lectura.
+        </p>
+      </header>
+      <main class="login-scene">
+        <figure class="login-photo">
+          <img
+            src="assets/images/biblioteca-manana.jpg"
+            alt="Biblioteca de madera con estantes llenos de libros, una mesa de lectura y una pared clara que continúa hacia la derecha"
+          />
+          <figcaption class="login-caption">
+            <h2>Siempre hay<br /><em>otra página.</em></h2>
+            <p>Retoma una historia.<br />Encuentra una nueva forma de mirar.</p>
+          </figcaption>
+        </figure>
+        <section class="login-form-area" aria-labelledby="folio-login-title">
+          <h1 id="folio-login-title">Continúa tu<br />historia.</h1>
+          <p class="login-intro" id="folio-login-intro">
+            Ingresa para solicitar libros y consultar tus préstamos.
+          </p>
+          <form class="login-form" id="folio-access-form">
+            <div class="login-field" id="folio-name-field" hidden>
+              <label for="folio-access-name">Tu nombre</label
+              ><input
+                id="folio-access-name"
+                name="nombre"
+                type="text"
+                autocomplete="name"
+                placeholder="Nombre y apellido"
+                maxlength="100"
+              />
+            </div>
+            <div class="login-field">
+              <label for="folio-access-email">Correo electrónico</label
+              ><input
+                id="folio-access-email"
+                name="email"
+                type="email"
+                autocomplete="username"
+                placeholder="tu@correo.com"
+                required
+                maxlength="254"
+              />
+            </div>
+            <div class="login-field">
+              <label for="folio-access-password">Contraseña</label>
+              <div class="login-password">
+                <input
+                  id="folio-access-password"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  placeholder="Tu contraseña"
+                  required
+                /><button
+                  class="cursor-interaction"
+                  id="folio-show-password"
+                  type="button"
+                  aria-controls="folio-access-password"
+                  aria-pressed="false"
+                  aria-label="Mostrar contraseña"
+                >
+                  Mostrar
+                </button>
+              </div>
+            </div>
+            <button class="login-submit cursor-interaction" type="submit">
+              <span id="folio-submit-label">Iniciar sesión</span
+              ><span aria-hidden="true">↗</span>
+            </button>
+          </form>
+          <p class="login-switch">
+            <span id="folio-switch-label">¿Aún no tienes cuenta?</span
+            ><button
+              class="cursor-interaction"
+              type="button"
+              id="folio-switch-view"
+            >
+              Regístrate
+            </button>
+          </p>
+          <p
+            class="login-status"
+            id="folio-access-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
+      </main>
+      <footer class="login-footer">
+        <span>FOLIO — Biblioteca académica</span>
+        <div class="login-light-control">
+          <label for="folio-light-mode">Iluminación</label
+          ><select id="folio-light-mode">
+            <option value="auto">Automática · Lima</option>
+            <option value="morning">Mañana</option>
+            <option value="afternoon">Tarde</option>
+            <option value="night">Noche</option>
+          </select>
+        </div>
+        <span>Vista de demostración · Usa datos de ejemplo.</span>
+      </footer>
+    </div>
+  </body>
+</html>

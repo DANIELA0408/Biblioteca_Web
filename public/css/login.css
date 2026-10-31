@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=DM+Sans:wght@400;500;600&display=swap");
+
+html {
+  scroll-behavior: auto;
+}
+body {
+  margin: 0;
+  background: #f7f6f0;
+}
+#folio-login-preview {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+#folio-login-preview .login-wordmark {
+  text-decoration: none;
+}
+
+#folio-login-preview {
+  --login-paper: #f7f6f0;
+  --login-ink: #171b17;
+  --login-green: #284733;
+  --login-red: #b7332c;
+  background: var(--login-paper);
+  color: var(--login-ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  container-type: inline-size;
+  position: relative;
+  color-scheme: light;
+}
+#folio-login-preview * {
+  box-sizing: border-box;
+}
+#folio-login-preview [hidden] {
+  display: none !important;
+}
+#folio-login-preview h1,
+#folio-login-preview h2,
+#folio-login-preview p,
+#folio-login-preview figure {
+  margin: 0;
+}
+#folio-login-preview button,
+#folio-login-preview input {
+  font: inherit;
+  color: inherit;
+}
+#folio-login-preview button {
+  cursor: var(--cursor-interaction, pointer);
+  touch-action: manipulation;
+}
+#folio-login-preview button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+#folio-login-preview button:focus-visible,
+#folio-login-preview input:focus-visible {
+  outline: 3px solid var(--login-red);
+  outline-offset: 4px;
+}
+#folio-login-preview .login-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 18px 5.2% 17px;
+  border-bottom: 1px solid #bfc3b6;
+}
+#folio-login-preview .login-wordmark {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.07em;
+  color: var(--login-ink);
+}
+#folio-login-preview .login-wordmark span {
+  color: var(--login-red);
+}
+#folio-login-preview .login-header-note {
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: right;
+  padding-right: 75px;
+  color: #4b5448;
+}
+#folio-login-preview .login-scene {
+  position: relative;
+  background: #e4dfd0;
+}
+#folio-login-preview .login-photo {
+  position: relative;
+}
+#folio-login-preview .login-photo > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 2;
+}
+#folio-login-preview .login-caption {
+  position: absolute;
+  left: 5.2%;
+  bottom: 8%;
+  width: 40%;
+  color: #fff9e9;
+}
+#folio-login-preview .login-caption h2 {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: clamp(31px, 5.1cqw, 55px);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  line-height: 0.99;
+  color: #fff9e9;
+  margin: 0 0 13px;
+}
+#folio-login-preview .login-caption h2 em {
+  font-family: inherit;
+  font-weight: 400;
+  color: inherit;
+  font-style: italic;
+}
+#folio-login-preview .login-caption p {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: clamp(11px, 1.25cqw, 13px);
+  line-height: 1.5;
+  color: #fff9e9;
+  max-width: 255px;
+}
+#folio-login-preview .login-form-area {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  width: 30%;
+  color: var(--login-ink);
+}
+#folio-login-preview .login-form-area h1 {
+  font-family: "Bodoni Moda", Georgia, serif;
+  color: var(--login-ink);
+  font-size: clamp(34px, 4.6cqw, 49px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin: 0 0 15px;
+}
+#folio-login-preview .login-intro {
+  font-family: "DM Sans", Arial, sans-serif;
+  color: #42493c;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0 0 23px;
+}
+#folio-login-preview .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#folio-login-preview .login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+#folio-login-preview .login-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--login-ink);
+}
+#folio-login-preview .login-field > input,
+#folio-login-preview .login-password {
+  width: 100%;
+  border: 1px solid #8c9280;
+  background: #faf8edeb;
+  min-height: 44px;
+  border-radius: 0;
+  box-shadow: none;
+}
+#folio-login-preview .login-field > input {
+  padding: 10px 12px;
+  font-size: 16px;
+}
+#folio-login-preview input::placeholder {
+  color: #646959;
+  opacity: 1;
+  font-size: 13px;
+}
+#folio-login-preview .login-password {
+  display: flex;
+  align-items: center;
+}
+#folio-login-preview .login-password input {
+  background: transparent;
+  border: 0;
+  min-width: 0;
+  width: 100%;
+  flex: 1;
+  padding: 10px 0 10px 12px;
+  font-size: 16px;
+  border-radius: 0;
+}
+#folio-login-preview .login-password button {
+  align-self: stretch;
+  padding: 0 11px;
+  background: transparent;
+  border: 0;
+  font-size: 11px;
+  font-weight: 500;
+  min-width: 59px;
+  color: var(--login-green);
+}
+#folio-login-preview .login-submit {
+  border: 1px solid var(--login-green);
+  background: var(--login-green);
+  color: #fff9e9;
+  min-height: 45px;
+  padding: 11px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 3px;
+  border-radius: 0;
+}
+#folio-login-preview .login-submit:hover {
+  background: #1b3726;
+}
+#folio-login-preview .login-switch {
+  font-family: "DM Sans", Arial, sans-serif;
+  color: #42493c;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 18px;
+}
+#folio-login-preview .login-switch button {
+  border: 0;
+  background: transparent;
+  color: var(--login-ink);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding: 0 0 0 3px;
+}
+#folio-login-preview .login-note {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 11px;
+  color: #555d4d;
+  margin-top: 15px;
+  line-height: 1.45;
+}
+#folio-login-preview .login-status {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--login-green);
+  margin-top: 12px;
+  font-weight: 500;
+  background: var(--login-paper);
+  padding: 8px 10px;
+}
+#folio-login-preview .login-status:empty {
+  display: none;
+}
+#folio-login-preview .login-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px 5.2% 17px;
+  font-size: 11px;
+  color: #555d4d;
+}
+#folio-login-preview[data-view="register"] .login-form-area {
+  top: 5%;
+}
+#folio-login-preview[data-view="register"] .login-form-area h1 {
+  font-size: clamp(31px, 3.8cqw, 42px);
+  margin-bottom: 10px;
+}
+#folio-login-preview[data-view="register"] .login-intro {
+  margin-bottom: 15px;
+}
+#folio-login-preview[data-view="register"] .login-form {
+  gap: 11px;
+}
+#folio-login-preview[data-view="register"] .login-switch {
+  margin-top: 12px;
+}
+#folio-login-preview[data-view="register"] .login-note {
+  margin-top: 11px;
+}
+@container (max-width:900px) {
+  #folio-login-preview .login-header {
+    padding-top: 15px;
+    padding-bottom: 14px;
+  }
+  #folio-login-preview .login-wordmark {
+    font-size: 41px;
+  }
+  #folio-login-preview .login-header-note {
+    padding-right: 45px;
+    font-size: 10px;
+  }
+  #folio-login-preview .login-caption {
+    bottom: 8%;
+    width: 42%;
+  }
+  #folio-login-preview .login-caption h2 {
+    font-size: 5.3cqw;
+    line-height: 1.02;
+    margin-bottom: 8px;
+  }
+  #folio-login-preview .login-caption p {
+    font-size: 11px;
+    max-width: 185px;
+  }
+  #folio-login-preview .login-form-area,
+  #folio-login-preview[data-view="register"] .login-form-area {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: auto;
+    padding: 32px 7% 35px;
+    background: var(--login-paper);
+  }
+  #folio-login-preview .login-form-area h1,
+  #folio-login-preview[data-view="register"] .login-form-area h1 {
+    font-size: 42px;
+    margin-bottom: 14px;
+  }
+  #folio-login-preview .login-intro {
+    max-width: 340px;
+    margin-bottom: 24px;
+  }
+  #folio-login-preview .login-form {
+    gap: 18px;
+  }
+  #folio-login-preview .login-switch {
+    margin-top: 21px;
+  }
+  #folio-login-preview .login-footer {
+    flex-direction: column;
+    gap: 4px;
+    border-top: 1px solid #d0d2c7;
+  }
+}
+@container (max-width:450px) {
+  #folio-login-preview .login-header-note {
+    padding-right: 45px;
+    max-width: 150px;
+  }
+  #folio-login-preview .login-caption {
+    bottom: 7%;
+    left: 5%;
+    width: 43%;
+  }
+  #folio-login-preview .login-caption h2 {
+    font-size: 6.1cqw;
+    margin-bottom: 0;
+  }
+  #folio-login-preview .login-caption p {
+    display: none;
+  }
+}
+#folio-login-preview .login-caption .login-greeting {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: clamp(17px, 2.1cqw, 23px);
+  font-style: italic;
+  line-height: 1.2;
+  color: #fff9e9;
+  margin: 0 0 9px;
+}
+#folio-login-preview .login-light-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#folio-login-preview .login-light-control label {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 11px;
+  color: inherit;
+}
+#folio-login-preview .login-light-control select {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 11px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  padding: 3px 14px 3px 0;
+  max-width: 165px;
+  cursor: var(--cursor-interaction, pointer);
+}
+#folio-login-preview .login-light-control select:focus-visible {
+  outline: 3px solid var(--login-red);
+  outline-offset: 4px;
+}
+#folio-login-preview .login-footer {
+  align-items: center;
+  flex-wrap: wrap;
+}
+#folio-login-preview .login-field input {
+  color: #171b17;
+}
+#folio-login-preview[data-light="night"] {
+  --login-paper: #14221d;
+  --login-ink: #f7f0df;
+  --login-red: #df8a70;
+  color-scheme: dark;
+}
+#folio-login-preview[data-light="night"] .login-header {
+  border-color: #465248;
+}
+#folio-login-preview[data-light="night"] .login-header-note,
+#folio-login-preview[data-light="night"] .login-footer {
+  color: #cdd0bf;
+}
+#folio-login-preview[data-light="night"] .login-intro,
+#folio-login-preview[data-light="night"] .login-switch {
+  color: #e1dfd1;
+}
+#folio-login-preview[data-light="night"] .login-submit {
+  background: #e7ddc1;
+  border-color: #e7ddc1;
+  color: #213c2e;
+}
+#folio-login-preview[data-light="night"] .login-submit:hover {
+  background: #f3ead5;
+}
+#folio-login-preview[data-light="night"] .login-status {
+  background: #1c3529;
+  color: #f7f0df;
+}
+#folio-login-preview[data-light="night"] .login-field > input,
+#folio-login-preview[data-light="night"] .login-password {
+  background: #f1eadb;
+  border-color: #c6baa1;
+}
+@container (max-width:900px) {
+  #folio-login-preview .login-footer {
+    align-items: flex-start;
+  }
+}
+@container (max-width:450px) {
+  #folio-login-preview .login-caption .login-greeting {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+}

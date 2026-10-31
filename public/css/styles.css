@@ -144,6 +144,8 @@ body {
 }
 #folio-preview .f-login {
   font-weight: 600;
+  font-size: 12px;
+  padding: 4px 0;
 }
 #folio-preview .f-hero {
   position: relative;
