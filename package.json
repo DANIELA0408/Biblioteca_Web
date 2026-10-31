@@ -1,0 +1,38 @@
+{
+  "name": "biblioteca_web",
+  "version": "1.0.0",
+  "description": "Web-based Library Management System with user authentication, book catalog, and loan control using Node.js, Express, Sequelize, and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+    "start": "node index.js",
+  "dev": "nodemon index.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebssez/Biblioteca_Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sebssez/Biblioteca_Web/issues"
+  },
+  "homepage": "https://github.com/sebssez/Biblioteca_Web#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.6",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+
+}
