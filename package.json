@@ -2,12 +2,12 @@
   "name": "biblioteca_web",
   "version": "1.0.0",
   "description": "Web-based Library Management System with user authentication, book catalog, and loan control using Node.js, Express, Sequelize, and MySQL.",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
     
-    "start": "node index.js",
-  "dev": "nodemon index.js"
+    "start": "node src/server.js",
+  "dev": "nodemon src/server.js"
 
   },
   "repository": {
