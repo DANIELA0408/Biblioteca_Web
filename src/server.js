@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Servir archivos estáticos del frontend (public)
+// Servir archivos estáticos apuntando a la carpeta public
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Rutas de la API
@@ -28,8 +28,8 @@ app.use('/api/libros', librosRoutes);
 app.use('/api/prestamos', prestamosRoutes);
 app.use('/api/usuarios', usuariosRoutes);
 
-// Ruta principal para servir el cliente web
-app.get('*', (req, res) => {
+// Ruta principal para servir el cliente web desde public
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
@@ -38,20 +38,12 @@ async function startServer() {
   try {
     await sequelize.authenticate();
     console.log('✅ Base de datos conectada con éxito.');
-<<<<<<< HEAD
-
-=======
     
->>>>>>> origin/main
     app.listen(PORT, () => {
       console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`);
     });
   } catch (error) {
     console.error('❌ Error al conectar la base de datos:', error.message);
-<<<<<<< HEAD
-    process.exit(1);
-=======
->>>>>>> origin/main
   }
 }
 
