@@ -5,8 +5,15 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
+=======
+    
+    "start": "node src/server.js",
+  "dev": "nodemon src/server.js"
+
+>>>>>>> origin/main
   },
   "repository": {
     "type": "git",
@@ -32,4 +39,8 @@
   "devDependencies": {
     "nodemon": "^3.1.14"
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 }

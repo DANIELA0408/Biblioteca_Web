@@ -1,8 +1,8 @@
-# 📚 Sistema de Gestión de Biblioteca Web
+# 📚 Sistema de Gestión de Biblioteca_Web
 
 Sistema web completo para la administración y gestión de una biblioteca digital, con autenticación de usuarios basada en roles (Admin/Usuario), catálogo interactivo de libros y control de préstamos con generación de códigos únicos.
 
-Proyecto desarrollado para el **Producto Académico N.º 4 - Diseño Web**.
+Proyecto desarrollado para el **Producto Académico C2_N.º1 - Desarrollo de Aplicaciones Web**.
 
 ---
 
@@ -35,3 +35,26 @@ biblioteca-web/
 ├── .env.example         # Plantilla de variables de entorno
 ├── .gitignore           # Archivos ignorados por Git
 └── package.json         # Dependencias y scripts del proyecto
+
+## 🔗 Endpoints principales
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| POST | /auth/register | Registrar usuario | Público |
+| POST | /auth/login | Iniciar sesión | Público |
+| GET | /libros | Ver catálogo | Autenticado |
+| POST/PUT/DELETE | /libros | Gestionar libros | Admin |
+| POST | /prestamos | Solicitar préstamo | Usuario |
+| GET | /prestamos | Ver préstamos | Autenticado |
+| PUT | /prestamos/:id/devolver | Registrar devolución | Admin |
+
+
+## 👥 Integrantes
+
+| Nombre | 
+| Andre Sebastian Espinoza Zea |
+| Jose Enrique Mejia Osis |
+| Daniela Rojas Paucar | 
+| Carlos Enrique Nieblas Tairo |
+| José Manuel Tantalla Puma |
+| Jessica Alessandra Condemayta Alvarez |

@@ -147,5 +147,8 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+<<<<<<< HEAD
 
 prueba-bd.js
+=======
+>>>>>>> origin/main
