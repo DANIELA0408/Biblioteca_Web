@@ -38,12 +38,20 @@ async function startServer() {
   try {
     await sequelize.authenticate();
     console.log('✅ Base de datos conectada con éxito.');
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> origin/main
     app.listen(PORT, () => {
       console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`);
     });
   } catch (error) {
     console.error('❌ Error al conectar la base de datos:', error.message);
+<<<<<<< HEAD
+    process.exit(1);
+=======
+>>>>>>> origin/main
   }
 }
 
