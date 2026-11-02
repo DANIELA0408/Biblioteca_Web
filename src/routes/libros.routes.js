@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const libroController = require('../controllers/libroController');
+const librosController = require('../controllers/libros.controller');
+const { verificarToken, esAdmin } = require('../middlewares/auth.middleware');
 
-const { verifyToken, isAdmin } = require('../middlewares/authMiddleware');
-)
-router.get('/', libroController.getLibros);
-
-router.post('/', verifyToken, isAdmin, libroController.createLibro);
-router.put('/:id', verifyToken, isAdmin, libroController.updateLibro);
-router.delete('/:id', verifyToken, isAdmin, libroController.deleteLibro);
+// Rutas para Libros
+router.get('/', librosController.obtenerLibros);
+router.get('/:id', librosController.obtenerLibroPorId);
+router.post('/', [verificarToken, esAdmin], librosController.crearLibro);
+router.put('/:id', [verificarToken, esAdmin], librosController.actualizarLibro);
+router.delete('/:id', [verificarToken, esAdmin], librosController.eliminarLibro);
 
 module.exports = router;

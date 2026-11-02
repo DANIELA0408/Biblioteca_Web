@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FOLIO, biblioteca académica: explora libros, busca tu próxima lectura y prueba las solicitudes de préstamo."
+    />
+    <meta name="theme-color" content="#284733" />
+    <title>FOLIO | Biblioteca académica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/libros-data.js" defer></script>
+    <script src="js/prestamos-data.js" defer></script>
+    <script src="js/admin-model.js" defer></script>
+    <script src="js/folio-client.js" defer></script>
+    <script src="js/index.js" defer></script>
+  </head>
+  <body>
+    <div
+      id="folio-preview"
+      lang="es"
+      aria-label="Inicio de FOLIO, biblioteca académica"
+    >
+      <div class="f-wrap">
+        <header>
+          <div class="f-top">
+            <span>Biblioteca académica · Edición de prueba</span
+            ><span>Un lugar para descubrir</span>
+          </div>
+          <div class="f-masthead">
+            <a
+              href="#folio-home"
+              class="f-brand f-serif"
+              aria-label="FOLIO, inicio"
+              >FOLI<i>O</i></a
+            >
+            <p class="f-brand-note">
+              Las buenas historias<br />merecen circular.
+            </p>
+          </div>
+          <nav class="f-nav" aria-label="Navegación principal">
+            <div class="f-links">
+              <a href="#folio-catalog">Catálogo</a
+              ><a href="#folio-how">Cómo funciona</a
+              ><a class="cursor-interaction" href="prestamos.html">
+                Mis préstamos <span id="folio-count"></span>
+              </a>
+            </div>
+            <a
+              class="f-login cursor-interaction"
+              href="login.html"
+              id="folio-account"
+            >
+              Ingresar ↗
+            </a>
+          </nav>
+        </header>
+        <main id="folio-home">
+          <section class="f-hero" aria-labelledby="folio-title">
+            <p class="f-hero-label f-kicker">
+              Literatura, arte y otras formas de mirar.
+            </p>
+            <figure class="f-image">
+              <img
+                src="assets/images/portada-editorial.jpg"
+                alt="Ilustración de una figura entre hojas y texturas verdes, tomada de la referencia visual proporcionada"
+              />
+            </figure>
+            <div class="f-cut-green" aria-hidden="true"></div>
+            <div class="f-cut-red" aria-hidden="true"></div>
+            <div class="f-cut-black" aria-hidden="true"></div>
+            <h1 class="f-title f-serif" id="folio-title">
+              <span>Fuera del</span><em>margen.</em>
+            </h1>
+            <div class="f-hero-copy">
+              <p>
+                Un libro puede cambiar tu forma de ver. Encuentra tu próxima
+                lectura y llévatela en préstamo.
+              </p>
+              <a href="#folio-catalog"
+                >Explorar el catálogo <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <p class="f-caption">
+              EN PORTADA / ARTE Y NATURALEZA<br />Imagen de referencia para esta
+              propuesta visual.
+            </p>
+          </section>
+          <form class="f-search" id="folio-search">
+            <label for="folio-query">¿Qué quieres<br />leer hoy?</label
+            ><input
+              id="folio-query"
+              name="titulo"
+              type="search"
+              placeholder="Busca un libro por su título"
+              autocomplete="off"
+            /><button type="submit" class="f-solid cursor-interaction">
+              Buscar ↗
+            </button>
+          </form>
+          <section id="folio-catalog" aria-labelledby="folio-catalog-title">
+            <div class="f-section-head">
+              <div>
+                <p id="folio-results" aria-live="polite">
+                  Selección del catálogo · 4 libros
+                </p>
+                <h2 id="folio-catalog-title" class="f-serif">
+                  Entre estas páginas.
+                </h2>
+              </div>
+              <label class="f-filter"
+                >Explora por categoría<select id="folio-category">
+                  <option value="">Todas</option>
+                  <option>Literatura</option>
+                  <option>Poesía</option>
+                  <option>Ensayo</option>
+                </select></label
+              >
+            </div>
+            <div class="f-grid" id="folio-books"></div>
+            <p id="folio-empty" class="f-empty" hidden>
+              No encontramos ese título. Prueba con otra búsqueda o categoría.
+            </p>
+            <div class="f-catalog-access">
+              <p>
+                Cuatro libros para empezar.<br /><em
+                  >Un estante por descubrir.</em
+                >
+              </p>
+              <a
+                id="folio-full-catalog"
+                href="libros.html"
+                aria-label="Abrir el catálogo completo"
+                ><span>Hay más historias</span
+                ><strong>Catálogo<br />completo ↗</strong></a
+              >
+            </div>
+          </section>
+          <section class="f-flow" aria-labelledby="folio-flow-title">
+            <h2 id="folio-flow-title">Otra forma de mirar.</h2>
+            <div class="f-contour-stage">
+              <figure class="f-flow-sculpture">
+                <img
+                  src="assets/images/musa-editorial.webp"
+                  alt="Busto de mármol de una musa literaria junto a una rama de laurel, con su silueta completa"
+                />
+              </figure>
+              <div class="f-contour-column f-contour-left">
+                <p>
+                  Hay páginas que se quedan contigo. Una voz, una pregunta, una
+                  manera distinta de nombrar el mundo.
+                </p>
+                <p>
+                  La literatura nos invita a detenernos; el arte, a mirar de
+                  nuevo.
+                </p>
+              </div>
+              <div class="f-contour-column f-contour-right">
+                <p>
+                  Entre ambos aparece ese espacio donde una idea encuentra
+                  <em>su propia forma.</em>
+                </p>
+                <p>
+                  Abre un libro. Sigue una frase. Quizá tu próxima lectura
+                  empiece justo donde termina lo que ya conoces.
+                </p>
+              </div>
+            </div>
+            <div class="f-flow-tail">
+              <span>Literatura y arte / Lecturas que dialogan</span
+              ><button
+                class="cursor-interaction"
+                type="button"
+                data-flow-category="Poesía"
+              >
+                Descubrir poesía ↗
+              </button>
+            </div>
+          </section>
+          <section
+            class="f-how"
+            id="folio-how"
+            aria-labelledby="folio-how-title"
+          >
+            <div>
+              <p class="f-kicker">De la biblioteca a tus manos</p>
+              <h2 class="f-serif" id="folio-how-title">
+                Leer empieza<br />por elegir.
+              </h2>
+            </div>
+            <div class="f-steps">
+              <article>
+                <span class="f-step-number">1</span>
+                <h3>Encuentra tu libro</h3>
+                <p>Busca por título y consulta su disponibilidad.</p>
+              </article>
+              <article>
+                <span class="f-step-number">2</span>
+                <h3>Solicita el préstamo</h3>
+                <p>Ingresa y envía tu solicitud para su aprobación.</p>
+              </article>
+              <article>
+                <span class="f-step-number">3</span>
+                <h3>Sigue tu lectura</h3>
+                <p>Consulta el estado y la devolución en Mis préstamos.</p>
+              </article>
+            </div>
+          </section>
+        </main>
+        <footer>
+          <span>FOLIO — Biblioteca académica</span
+          ><a href="admin/libros.html">Administración demo ↗</a
+          ><span>Catálogo de muestra · Préstamos de demostración</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,822 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=DM+Sans:wght@400;500;600;700&display=swap");
+body {
+  margin: 0;
+  background: #303734;
+}
+#folio-admin {
+  --a-paper: #f8f8f3;
+  --a-ink: #202a30;
+  --a-blue: #315e8d;
+  --a-line: #cbd0cb;
+  --a-muted: #59665f;
+  --a-wash: #edf1f2;
+  --a-red: #9f362d;
+  color: var(--a-ink);
+  background: #303734;
+  padding: 24px;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  container-type: inline-size;
+  color-scheme: light;
+}
+#folio-admin * {
+  box-sizing: border-box;
+}
+#folio-admin [hidden] {
+  display: none !important;
+}
+#folio-admin h1,
+#folio-admin h2,
+#folio-admin h3,
+#folio-admin p,
+#folio-admin figure,
+#folio-admin dl,
+#folio-admin dd {
+  margin: 0;
+}
+#folio-admin button,
+#folio-admin input,
+#folio-admin select,
+#folio-admin textarea {
+  font: inherit;
+  color: inherit;
+}
+#folio-admin button,
+#folio-admin a {
+  touch-action: manipulation;
+}
+#folio-admin button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+#folio-admin button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+#folio-admin a {
+  color: inherit;
+  text-decoration: none;
+}
+#folio-admin a:hover,
+#folio-admin .admin-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#folio-admin button:focus-visible,
+#folio-admin a:focus-visible,
+#folio-admin input:focus-visible,
+#folio-admin select:focus-visible,
+#folio-admin textarea:focus-visible {
+  outline: 3px solid var(--a-blue);
+  outline-offset: 4px;
+}
+#folio-admin .admin-paper {
+  background: var(--a-paper);
+  max-width: 1400px;
+  margin: auto;
+}
+#folio-admin .admin-top {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 24px 32px 20px;
+  border-bottom: 1px solid var(--a-line);
+}
+#folio-admin .admin-brand {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 47px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+#folio-admin .admin-brand span {
+  color: var(--a-blue);
+}
+#folio-admin .admin-top p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+#folio-admin .admin-top p span {
+  color: var(--a-muted);
+  font-size: 11px;
+}
+#folio-admin .admin-public-link {
+  margin-left: auto;
+  font-size: 12px;
+}
+#folio-admin .admin-body {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+}
+#folio-admin .admin-sidebar {
+  border-right: 1px solid var(--a-line);
+  padding: 28px 19px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#folio-admin .admin-sidebar > p {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 21px;
+  line-height: 1.1;
+}
+#folio-admin .admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#folio-admin .admin-sidebar nav a {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 13px;
+}
+#folio-admin .admin-sidebar nav a span {
+  color: var(--a-muted);
+  font-size: 11px;
+  align-self: center;
+}
+#folio-admin .admin-sidebar nav a[aria-current] {
+  color: var(--a-blue);
+  font-weight: 600;
+}
+#folio-admin .admin-sidebar-bottom {
+  margin-top: auto;
+  padding-top: 70px;
+}
+#folio-admin .admin-sidebar-bottom p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--a-muted);
+}
+#folio-admin .admin-sidebar-bottom button {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#folio-admin .admin-main {
+  min-width: 0;
+  padding: 29px 32px 25px;
+}
+#folio-admin .admin-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 29px;
+}
+#folio-admin .admin-hero h1 {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: clamp(44px, 5.7cqw, 76px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+#folio-admin .admin-hero h1 span {
+  color: var(--a-blue);
+}
+#folio-admin .admin-hero > div > p {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 25px;
+  line-height: 1.15;
+  margin-top: 18px;
+  max-width: 270px;
+}
+#folio-admin .admin-hero img {
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+  object-position: center 12%;
+  display: block;
+}
+#folio-admin .admin-hero figcaption {
+  font-size: 11px;
+  color: var(--a-muted);
+  margin-top: 7px;
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+#folio-admin .admin-toolbar {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 17px 0;
+  border-top: 1px solid var(--a-ink);
+  border-bottom: 1px solid var(--a-ink);
+}
+#folio-admin .admin-toolbar form {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  gap: 10px;
+}
+#folio-admin .admin-toolbar input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 15px;
+  padding: 7px 0;
+}
+#folio-admin input::placeholder,
+#folio-admin textarea::placeholder {
+  color: #65716a;
+  opacity: 1;
+}
+#folio-admin .admin-toolbar form button {
+  font-size: 12px;
+  padding: 7px 2px;
+}
+#folio-admin .admin-primary {
+  background: var(--a-blue);
+  color: #fff;
+  padding: 11px 17px;
+  font-size: 12px;
+  min-height: 42px;
+}
+#folio-admin .admin-primary:hover {
+  background: #254c76;
+}
+#folio-admin .admin-list-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 0 17px;
+  font-size: 12px;
+}
+#folio-admin .admin-list-controls label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+#folio-admin .admin-list-controls select {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--a-line);
+  padding: 6px 16px 6px 0;
+  border-radius: 0;
+  max-width: 200px;
+}
+#folio-admin #admin-results {
+  font-size: 11px;
+  color: var(--a-muted);
+  text-align: right;
+}
+#folio-admin .admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  table-layout: fixed;
+}
+#folio-admin .admin-table th {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--a-muted);
+  padding: 11px 9px;
+  border-top: 1px solid var(--a-line);
+  border-bottom: 1px solid var(--a-line);
+}
+#folio-admin .admin-table td {
+  padding: 14px 9px;
+  vertical-align: middle;
+  border-bottom: 1px solid #dde0da;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+#folio-admin .admin-table th:first-child,
+#folio-admin .admin-table td:first-child {
+  padding-left: 0;
+}
+#folio-admin .admin-table th:last-child,
+#folio-admin .admin-table td:last-child {
+  padding-right: 0;
+}
+#folio-admin .admin-table .admin-primary-col {
+  width: 40%;
+}
+#folio-admin .admin-table .admin-actions-col {
+  width: 28%;
+}
+#folio-admin .admin-table .admin-small-col {
+  width: 15%;
+}
+#folio-admin .admin-table .admin-book-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#folio-admin .admin-mini-cover {
+  flex: none;
+  width: 30px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 23px;
+  background: var(--cover-bg, #284733);
+  color: var(--cover-ink, #f7f1e3);
+  box-shadow: inset 3px 0 #00000015;
+}
+#folio-admin .admin-cell-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+#folio-admin .admin-cell-note {
+  display: block;
+  font-size: 11px;
+  color: var(--a-muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+#folio-admin .admin-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 12px;
+  align-items: center;
+}
+#folio-admin .admin-link {
+  color: var(--a-blue);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding: 5px 0;
+}
+#folio-admin .admin-link.is-danger {
+  color: var(--a-red);
+}
+#folio-admin .admin-state {
+  color: #284733;
+  font-size: 11px;
+}
+#folio-admin .admin-state[data-state="pendiente"] {
+  color: #87512a;
+}
+#folio-admin .admin-state[data-state="devuelto"] {
+  color: var(--a-muted);
+}
+#folio-admin .admin-inline-action {
+  border: 1px solid var(--a-blue);
+  color: var(--a-blue);
+  padding: 7px 10px;
+  font-size: 11px;
+}
+#folio-admin .admin-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  padding-top: 20px;
+  font-size: 12px;
+}
+#folio-admin .admin-pagination button {
+  padding: 7px 0;
+}
+#folio-admin .admin-pagination p {
+  font-size: 11px;
+  color: var(--a-muted);
+}
+#folio-admin .admin-empty {
+  padding: 35px 0;
+  border-top: 1px solid var(--a-line);
+}
+#folio-admin .admin-empty h2 {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+#folio-admin .admin-empty p {
+  font-size: 13px;
+  color: var(--a-muted);
+  margin-top: 9px;
+}
+#folio-admin .admin-empty button {
+  margin-top: 15px;
+  padding: 0;
+}
+#folio-admin .admin-notice {
+  padding: 14px 16px;
+  margin-bottom: 19px;
+  background: #eaf0e9;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+#folio-admin .admin-notice p {
+  font-size: 13px;
+  flex: 1;
+  min-width: 160px;
+}
+#folio-admin .admin-notice.is-error {
+  background: #f4e9e3;
+}
+#folio-admin .admin-notice button {
+  padding: 5px 0;
+  color: var(--a-blue);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#folio-admin #admin-notice-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+#folio-admin .admin-editor {
+  padding: 22px;
+  margin-bottom: 25px;
+  border: 1px solid var(--a-line);
+  background: #eff1eb;
+}
+#folio-admin .admin-editor-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 15px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--a-line);
+  margin-bottom: 20px;
+}
+#folio-admin .admin-editor-heading h2 {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+#folio-admin .admin-editor-heading p {
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--a-muted);
+}
+#folio-admin .admin-editor-heading button {
+  padding: 3px 0;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#folio-admin .admin-editor-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: 28px;
+  align-items: start;
+}
+#folio-admin .admin-form-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+#folio-admin .admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+#folio-admin .admin-field.is-full {
+  grid-column: 1/-1;
+}
+#folio-admin .admin-field label {
+  font-size: 12px;
+}
+#folio-admin .admin-field input,
+#folio-admin .admin-field select,
+#folio-admin .admin-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #aeb8ae;
+  border-radius: 0;
+  background: var(--a-paper);
+  padding: 10px 11px;
+  font-size: 15px;
+  min-height: 43px;
+}
+#folio-admin .admin-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.5;
+}
+#folio-admin .admin-field small {
+  font-size: 11px;
+  color: var(--a-muted);
+}
+#folio-admin .admin-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+#folio-admin .admin-form-actions > button:not(.admin-primary) {
+  font-size: 12px;
+  padding: 7px 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#folio-admin .admin-editor-preview {
+  max-width: 220px;
+  padding-top: 4px;
+  margin: auto;
+}
+#folio-admin .admin-cover {
+  position: relative;
+  aspect-ratio: 0.74;
+  padding: 18px;
+  background: var(--cover-bg, #315e8d);
+  color: var(--cover-ink, #f7f1e3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  overflow: hidden;
+  box-shadow: inset 5px 0 #00000015;
+}
+#folio-admin .admin-cover:after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid currentColor;
+  opacity: 0.3;
+  pointer-events: none;
+}
+#folio-admin .admin-cover span {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#folio-admin .admin-cover span:last-child {
+  -webkit-line-clamp: 1;
+}
+#folio-admin .admin-cover strong {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 29px;
+  line-height: 1.05;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#folio-admin .admin-cover em {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 65px;
+  line-height: 0.8;
+  align-self: center;
+}
+#folio-admin .admin-editor-preview > p {
+  font-size: 11px;
+  color: var(--a-muted);
+  margin-top: 10px;
+}
+#folio-admin .admin-review h3 {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+#folio-admin .admin-review > p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 13px;
+}
+#folio-admin .admin-review dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px 20px;
+  margin-top: 18px;
+}
+#folio-admin .admin-review dt {
+  font-size: 11px;
+  color: var(--a-muted);
+}
+#folio-admin .admin-review dd {
+  font-size: 14px;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+#folio-admin .admin-review .admin-field {
+  max-width: 260px;
+  margin-top: 20px;
+}
+#folio-admin .admin-delete-confirm {
+  background: var(--a-red);
+}
+#folio-admin .admin-delete-confirm:hover {
+  background: #802a23;
+}
+#folio-admin .admin-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid var(--a-line);
+  padding: 18px 32px;
+  font-size: 11px;
+  color: var(--a-muted);
+}
+#folio-admin .admin-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@container (max-width:850px) {
+  #folio-admin .admin-body {
+    grid-template-columns: 1fr;
+  }
+  #folio-admin .admin-sidebar {
+    flex-direction: row;
+    align-items: center;
+    border-right: 0;
+    border-bottom: 1px solid var(--a-line);
+    padding: 12px 24px;
+    gap: 20px;
+  }
+  #folio-admin .admin-sidebar > p {
+    display: none;
+  }
+  #folio-admin .admin-sidebar nav {
+    flex-direction: row;
+    gap: 22px;
+  }
+  #folio-admin .admin-sidebar nav a {
+    gap: 8px;
+    padding: 8px 0;
+  }
+  #folio-admin .admin-sidebar-bottom {
+    margin: 0 0 0 auto;
+    padding: 0;
+  }
+  #folio-admin .admin-sidebar-bottom p {
+    display: none;
+  }
+  #folio-admin .admin-sidebar-bottom button {
+    margin: 0;
+  }
+  #folio-admin .admin-main {
+    padding: 25px;
+  }
+}
+@container (max-width:650px) {
+  #folio-admin .admin-top {
+    padding: 20px;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  #folio-admin .admin-brand {
+    font-size: 42px;
+  }
+  #folio-admin .admin-top p {
+    font-size: 11px;
+  }
+  #folio-admin .admin-public-link {
+    font-size: 11px;
+  }
+  #folio-admin .admin-hero {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  #folio-admin .admin-hero h1 {
+    font-size: 55px;
+  }
+  #folio-admin .admin-hero > div > p {
+    font-size: 24px;
+    margin-top: 12px;
+    max-width: none;
+  }
+  #folio-admin .admin-hero img {
+    height: 130px;
+  }
+  #folio-admin .admin-toolbar {
+    flex-wrap: wrap;
+  }
+  #folio-admin .admin-toolbar form {
+    width: 100%;
+    flex-basis: 100%;
+  }
+  #folio-admin .admin-table {
+    table-layout: auto;
+  }
+  #folio-admin .admin-table thead {
+    display: none;
+  }
+  #folio-admin .admin-table tbody tr {
+    display: block;
+    border-top: 1px solid var(--a-line);
+    padding: 13px 0;
+  }
+  #folio-admin .admin-table td {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 10px;
+    padding: 6px 0 !important;
+    border: 0;
+  }
+  #folio-admin .admin-table td:before {
+    content: attr(data-label);
+    font-size: 11px;
+    color: var(--a-muted);
+  }
+  #folio-admin .admin-table .admin-primary-col,
+  #folio-admin .admin-table .admin-actions-col,
+  #folio-admin .admin-table .admin-small-col {
+    width: auto;
+  }
+  #folio-admin .admin-editor-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  #folio-admin .admin-editor-preview {
+    width: 65%;
+    max-width: 210px;
+  }
+  #folio-admin .admin-list-controls {
+    align-items: start;
+  }
+  #folio-admin .admin-footer {
+    flex-direction: column;
+    gap: 5px;
+    padding: 18px 24px;
+  }
+}
+@container (max-width:420px) {
+  #folio-admin .admin-top {
+    gap: 12px;
+  }
+  #folio-admin .admin-top p {
+    display: none;
+  }
+  #folio-admin .admin-sidebar {
+    padding: 10px 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  #folio-admin .admin-sidebar nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  #folio-admin .admin-sidebar-bottom {
+    margin: 0;
+  }
+  #folio-admin .admin-main {
+    padding: 22px 18px;
+  }
+  #folio-admin .admin-hero h1 {
+    font-size: 45px;
+  }
+  #folio-admin .admin-list-controls {
+    flex-direction: column;
+    gap: 7px;
+  }
+  #folio-admin .admin-table td {
+    grid-template-columns: 76px minmax(0, 1fr);
+  }
+  #folio-admin .admin-editor {
+    padding: 17px;
+  }
+  #folio-admin .admin-form-fields {
+    grid-template-columns: 1fr;
+  }
+  #folio-admin .admin-review dl {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  #folio-admin {
+    padding: 12px;
+  }
+}
+@container (max-width:500px) {
+  #folio-admin .admin-editor-preview {
+    display: none;
+  }
+}
+@media (pointer: coarse) {
+  #folio-admin button,
+  #folio-admin .admin-sidebar nav a {
+    min-height: 44px;
+  }
+  #folio-admin .admin-field input,
+  #folio-admin .admin-field select,
+  #folio-admin .admin-field textarea {
+    font-size: 16px;
+  }
+}

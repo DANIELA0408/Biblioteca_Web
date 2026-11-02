@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Administración de FOLIO: colección, préstamos y usuarios. Demostración de frontend con datos locales."
+    />
+    <meta name="theme-color" content="#315e8d" />
+    <title>Préstamos — Administración | FOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <script src="../js/libros-data.js" defer></script>
+    <script src="../js/prestamos-data.js" defer></script>
+    <script src="../js/admin-model.js" defer></script>
+    <script src="../js/folio-client.js" defer></script>
+    <script src="../js/admin.js" defer></script>
+  </head>
+  <body>
+    <div id="folio-admin" data-initial-view="loans" lang="es">
+      <div class="admin-paper">
+        <header class="admin-top">
+          <a
+            class="admin-brand"
+            href="../index.html"
+            aria-label="FOLIO, volver a la biblioteca"
+            >FOLI<span>O</span></a
+          >
+          <p>Cuaderno de administración<br /><span>Demostración local</span></p>
+          <a class="admin-public-link" href="../index.html"
+            >Ver biblioteca ↗</a
+          >
+        </header>
+        <div class="admin-body">
+          <aside class="admin-sidebar">
+            <p>Índice del cuaderno</p>
+            <nav aria-label="Secciones de administración">
+              <a href="libros.html" data-admin-view="books"
+                ><span>01</span> Libros</a
+              ><a
+                href="prestamos.html"
+                data-admin-view="loans"
+                aria-current="page"
+                ><span>02</span> Préstamos</a
+              ><a href="usuarios.html" data-admin-view="users"
+                ><span>03</span> Usuarios</a
+              >
+            </nav>
+            <div class="admin-sidebar-bottom">
+              <p>Los cambios de este panel son una simulación local.</p>
+              <button type="button" data-action="reset-demo">
+                Restablecer demo
+              </button>
+            </div>
+          </aside>
+          <main class="admin-main">
+            <div class="admin-hero">
+              <div>
+                <h1 id="admin-title">Libros<span>.</span></h1>
+                <p id="admin-intro">
+                  Cuida la colección,<br />una ficha a la vez.
+                </p>
+              </div>
+              <figure>
+                <img
+                  id="admin-hero-image"
+                  src="../assets/images/catalogo-estante.webp"
+                  alt="Estantería de la biblioteca FOLIO"
+                />
+                <figcaption id="admin-hero-caption">
+                  Archivo de la colección
+                </figcaption>
+              </figure>
+            </div>
+            <div class="admin-toolbar">
+              <form id="admin-search-form" role="search">
+                <label class="admin-sr" for="admin-query"
+                  >Buscar en la sección</label
+                ><input
+                  type="search"
+                  id="admin-query"
+                  placeholder="Buscar por título o autor"
+                  autocomplete="off"
+                /><button type="submit" aria-label="Buscar">Buscar ↗</button>
+              </form>
+              <button
+                class="admin-primary"
+                id="admin-new"
+                type="button"
+                data-action="new"
+              >
+                Nueva ficha ↗
+              </button>
+            </div>
+            <div class="admin-list-controls">
+              <label id="admin-filter-label"
+                ><span id="admin-filter-name">Categoría</span>
+                <select id="admin-filter">
+                  <option value="">Todas</option>
+                </select></label
+              >
+              <p id="admin-results" aria-live="polite"></p>
+            </div>
+            <div class="admin-notice" id="admin-notice" hidden>
+              <p id="admin-notice-text" role="status" aria-live="polite"></p>
+              <button type="button" data-action="undo" id="admin-undo" hidden>
+                Deshacer
+              </button>
+              <div id="admin-notice-actions"></div>
+            </div>
+            <section
+              class="admin-editor"
+              id="admin-editor"
+              hidden
+              aria-label="Formulario de administración"
+            ></section>
+            <div class="admin-table-area" id="admin-table-area"></div>
+            <nav class="admin-pagination" aria-label="Páginas de resultados">
+              <button id="admin-prev" type="button">← Anterior</button>
+              <p id="admin-page-number"></p>
+              <button id="admin-next" type="button">Siguiente →</button>
+            </nav>
+            <noscript
+              >Activa JavaScript para explorar esta demostración de
+              administración.</noscript
+            >
+          </main>
+        </div>
+        <footer class="admin-footer">
+          <span>FOLIO / Administración</span
+          ><span id="admin-storage-note"
+            >Datos de ejemplo · Cambios locales</span
+          ><span id="admin-page-label">Archivo / 01</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
